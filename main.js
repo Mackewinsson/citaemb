@@ -8,19 +8,13 @@ import fs from 'fs'
 
 await page.waitForSelector('input[type="email"]')
 await page.waitForSelector('input[type="password"]')
+await page.type('input[type="email"]', 'mackewinsson@gmail.com', {delay: 200})
+await page.type('input[type="password"]', 'Palencia1989', {delay: 200})
 
-  await page.evaluate(()=>{
-    const email = document.querySelector('input[type="email"]')
-    email.value = 'mackewinsson@gmail.com'
-  })
-  await page.evaluate(()=>{
-    const email = document.querySelector('input[type="password"]')
-    email.value = 'Palencia1989'
-  })
-
- await page.click('input[name="policy_confirmed"]')
- await page.click('input[type="submit"]')
+await page.click('input[name="policy_confirmed"]')
+await page.click('input[type="submit"]')
 await page.goto('https://ais.usvisa-info.com/es-cl/niv/schedule/34724450/appointment')
+await page.click('input[value="Continuar"]')
 
 
 page.on('response', async (response)=>{
