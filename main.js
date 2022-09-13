@@ -42,7 +42,7 @@ page.on('response', async (response)=>{
         
     }
 })
-await page.click('input[value="Continuar"]')
+
 
 
 
